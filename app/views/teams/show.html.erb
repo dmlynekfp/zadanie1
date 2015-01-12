@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>
+
+<h2>Events</h2>
+<table>
+  <thead>
+  <tr>
+    <th>name</th>
+    <th>link to</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= link_to 'Show', event %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
+<h2>Players</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>link to</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% @players.each do |player| %>
+      <tr>
+        <td><%= player.name %></td>
+        <td><%= link_to 'Show', player%></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h2>Characters</h2>
+<table>
+  <thead>
+  <tr>
+    <th colspan="1">Name</th>
+    <th colspan="1">Owner</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% @characters.each do |character| %>
+      <tr>
+        <td><%= character.name %></td>
+        <td><%= #link_to 'Show', event
+        %></td>
+        <td><%= character.player.name %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

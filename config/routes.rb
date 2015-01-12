@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  resources :teams
+  get 'players/show'
 
+  get 'player/show'
+
+  resources :teams
+  resources :players, only: [:show]
+
+  root to: 'teams#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -9,7 +15,7 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
+  resources :events
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

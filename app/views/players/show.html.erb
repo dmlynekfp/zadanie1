@@ -2,7 +2,11 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @event.name %>
+  <%= @player.name %>
+</p>
+<p>
+  <strong>Team:</strong>
+  <%= link_to @player.team.name , @player.team %>
 </p>
 
 <%= #link_to 'Edit', edit_team_path(@team)
@@ -10,20 +14,18 @@
 <%= #link_to 'Back', teams_path
 %>
 
-<h2>teams</h2>
+<h2>characters</h2>
 <table>
   <thead>
   <tr>
     <th>Name</th>
-    <th>link to</th>
   </tr>
   </thead>
 
   <tbody>
-  <% @teams.each do |team| %>
+  <% @characters.each do |character| %>
       <tr>
-        <td><%= team.name %></td>
-        <td><%= link_to 'Show', team %></td>
+        <td><%= character.name %></td>
       </tr>
   <% end %>
   </tbody>
