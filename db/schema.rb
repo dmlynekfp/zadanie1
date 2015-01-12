@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150109130421) do
+ActiveRecord::Schema.define(version: 20150112084725) do
 
   create_table "characters", force: true do |t|
     t.string   "name"
@@ -56,6 +56,10 @@ ActiveRecord::Schema.define(version: 20150109130421) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "country_id"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   add_index "teams", ["country_id"], name: "index_teams_on_country_id"

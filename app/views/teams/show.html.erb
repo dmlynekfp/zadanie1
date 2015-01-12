@@ -8,6 +8,21 @@
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
 
+
+
+logo:<%= image_tag @team.logo %>
+
+
+
+
+<%= form_for @team, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :logo %>
+  <%= form.submit %>
+<% end %>
+
+
+
+
 <h2>Events</h2>
 <table>
   <thead>
@@ -71,3 +86,17 @@
   <% end %>
   </tbody>
 </table>
+
+
+
+<%= semantic_form_for @team do |f| %>
+    <%= f.inputs :name, :logo %>
+    <%= f.semantic_fields_for :players do |player| %>
+        <%= player.inputs :name, :email_adress %>
+        <%= player.semantic_fields_for :characters do |character| %>
+            <%= character.inputs :name%>
+        <% end %>
+    <% end %>
+    <%= f.actions %>
+<% end %>
+
