@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'players/show'
 
-  get 'player/show'
 
   resources :teams
   resources :players, only: [:show]
