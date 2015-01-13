@@ -1,8 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'characters/index'
 
-  resources :teams
-  resources :players, only: [:show]
+#  get 'teams/:id/showplayers' =>'teams#showplayers'
+
+
+ #resources :players, only: [:show, :index]
+  resources :players, only: [:show, :index]
+  resources :teams do
+    resources :players, only: [:show, :index] do
+      resources :characters, only: [:show, :index]
+    end
+    resources :characters, only: [:show, :index]
+  end
+
+
+
   mount Judge::Engine => '/judge'
   root to: 'teams#index'
   # The priority is based upon order of creation: first created -> highest priority.

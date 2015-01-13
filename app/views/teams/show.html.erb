@@ -37,44 +37,10 @@ logo:<%= image_tag @team.logo %>
 
 
 <h2>Players</h2>
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>link to</th>
-  </tr>
-  </thead>
+<p><%= @team.name %> have <%= pluralize(@number_of_players , 'player')%></p>
+<%= link_to 'show players', team_players_path(@team) %>
 
-  <tbody>
-
-  <% @team.players.each do |player| %>
-      <tr>
-        <td><%= player.name %></td>
-        <td><%= link_to 'Show', player%></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
 
 <h2>Characters</h2>
-<table>
-  <thead>
-  <tr>
-    <th colspan="1">Name</th>
-    <th colspan="1">Owner</th>
-  </tr>
-  </thead>
-
-  <tbody>
-
-  <% @team.characters.each do |character| %>
-      <tr>
-        <td><%= character.name %></td>
-        <td><%= #link_to 'Show', event
-        %></td>
-        <td><%= character.player.name %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
+<p><%= @team.name %> have <%= pluralize(@number_of_characters , 'character')%></p>
+<%= link_to 'show characters', team_characters_path(@team) %>

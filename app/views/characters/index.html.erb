@@ -1,0 +1,24 @@
+
+<p>
+  <strong>Characters of team:</strong>
+  <%= @team.name %>
+</p>
+
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% @team.characters.each do |character| %>
+      <tr>
+        <td><%= character.name %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
