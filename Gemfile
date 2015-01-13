@@ -33,7 +33,7 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 #active formtastic
 gem 'formtastic', '~> 3.0'
 
-#client side validation
+#active judge
 gem 'judge'
 
 # Use ActiveModel has_secure_password
