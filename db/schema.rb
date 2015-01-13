@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112084725) do
+ActiveRecord::Schema.define(version: 20150113073649) do
 
   create_table "characters", force: true do |t|
     t.string   "name"
+    t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "player_id"
   end
 
-  add_index "characters", ["player_id"], name: "index_characters_on_player_id"
+  add_index "characters", ["player_id"], name: "index_characters_on_player_id", using: :btree
 
   create_table "countries", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
   end
 
   create_table "events", force: true do |t|
@@ -39,29 +39,28 @@ ActiveRecord::Schema.define(version: 20150112084725) do
     t.integer "team_id"
   end
 
+  add_index "events_teams", ["event_id"], name: "index_events_teams_on_event_id", using: :btree
+  add_index "events_teams", ["team_id"], name: "index_events_teams_on_team_id", using: :btree
+
   create_table "players", force: true do |t|
     t.string   "name"
     t.string   "email_adress"
+    t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "team_id"
   end
 
-  add_index "players", ["team_id"], name: "index_players_on_team_id"
-  add_index "players", ["user_id"], name: "index_players_on_user_id"
+  add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
 
   create_table "teams", force: true do |t|
     t.string   "name"
+    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "country_id"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
   end
-
-  add_index "teams", ["country_id"], name: "index_teams_on_country_id"
 
 end

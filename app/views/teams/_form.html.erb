@@ -1,12 +1,21 @@
 
 
 <%= semantic_form_for @team do |f| %>
-    <%= f.inputs :name, :logo %>
+    <%= f.input :name, validate:true %>
     <%= f.semantic_fields_for :players do |player| %>
-        <%= player.inputs :name, :email_adress %>
-        <%= player.semantic_fields_for :characters %>
-        <%= player.inputs :characters>
+        <%= player.inputs :name, :email_adress%>
+        <%= player.semantic_fields_for :characters do |character| %>
+            <%= character.inputs :name %>
+
+        <% end %>
     <% end %>
-    <%= f.actions %>
+
+    <%= f.actions :submit  %>
 <% end %>
 
+<!--f.inputs do-->
+    <!--f.input :cos-->
+    <!--f.semantic_blabla do |g|-->
+        <!--g.costam-->
+    <!--end-->
+<!--end-->

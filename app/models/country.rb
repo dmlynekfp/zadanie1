@@ -1,5 +1,5 @@
 class Country < ActiveRecord::Base
-  has_many :team
+  has_many :teams
   #has many thougr
-  validates :name, length: {in: 6..20}
+  validates_length_of :name, in: 5..30
 end
