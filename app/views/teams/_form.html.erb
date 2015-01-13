@@ -4,7 +4,7 @@
     <%= f.inputs do %>
         <%= f.input :name, validate:true %>
         <%= f.semantic_fields_for :players do |player| %>
-            <%= player.inputs :name, :email_adress%>
+            <%= player.inputs :name, :email_adress, validate:true %>
             <%= player.semantic_fields_for :characters do |character| %>
                 <%= character.inputs :name %>
     
@@ -14,6 +14,11 @@
 
     <%= f.actions :submit  %>
 <% end %>
+
+<input type="button" id="filter" value="Filter" />
+
+
+
 
 <!--f.inputs do-->
     <!--f.input :cos-->
