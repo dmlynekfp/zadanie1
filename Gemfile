@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.9'
-# Use mysql as the database for Active Record
-gem 'mysql2'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -33,13 +33,11 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 #active formtastic
 gem 'formtastic', '~> 3.0'
 
-#client side validation
+#active judge
 gem 'judge'
 
-#formtastic judge adapter
+
 gem 'judge-formtastic'
-
-
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
