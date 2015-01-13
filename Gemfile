@@ -36,11 +36,6 @@ gem 'formtastic', '~> 3.0'
 #client side validation
 gem 'judge'
 
-#formtastic judge adapter
-gem 'judge-formtastic'
-
-
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
