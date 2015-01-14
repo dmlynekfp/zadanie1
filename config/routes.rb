@@ -7,11 +7,11 @@ Rails.application.routes.draw do
 
  #resources :players, only: [:show, :index]
   resources :players, only: [:show, :index]
-  resources :teams do
+  resources :teams, except:[:create] do
     resources :players, only: [:show, :index] do
-      resources :characters, only: [:show, :index]
+      resources :characters, only: [:index]
     end
-    resources :characters, only: [:show, :index]
+    resources :characters, only: [:index]
   end
 
 

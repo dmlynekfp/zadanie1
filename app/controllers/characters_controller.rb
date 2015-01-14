@@ -1,6 +1,17 @@
 class CharactersController < ApplicationController
   def index
-    @team=Team.find_by(params[:id])
+
+    if params.has_key?(:player_id)
+      @owner=Player.find(params[:player_id])
+      @name=@owner.name
+      @characters=@owner.characters
+
+    else
+      @owner=Team.find(params[:team_id])
+      @name=@owner.name
+      @characters=@owner.characters
+    end
+
 
   end
 
