@@ -37,10 +37,10 @@ logo:<%= image_tag @team.logo %>
 
 
 <h2>Players</h2>
-<p><%= @team.name %> have <%= pluralize(@number_of_players , 'player')%></p>
+<p><%= @team.name %> have <%= pluralize(@team.players.count , 'player')%></p>
 <%= link_to 'show players', team_players_path(@team) %>
 
 
 <h2>Characters</h2>
-<p><%= @team.name %> have <%= pluralize(@number_of_characters , 'character')%></p>
+<p><%= @team.name %> have <%= pluralize(@team.characters.count , 'character')%></p>
 <%= link_to 'show characters', team_characters_path(@team) %>

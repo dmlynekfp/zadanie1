@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :players, only: [:show, :index] do
       resources :characters, only: [:index]
     end
-    resources :characters, only: [:index]
+    get 'characters', to:'characters#teamindex'
   end
 
 

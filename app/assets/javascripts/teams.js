@@ -14,7 +14,6 @@ $(document).ready(function(){
         });
     }
 
-    validate();
 
     $("#team_name").keyup(validate);
 

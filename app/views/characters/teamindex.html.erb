@@ -1,5 +1,5 @@
 <p>
-  <strong>Characters of player <%= @player.name%>:</strong>
+  <strong>Characters of team <%= @team.name%>:</strong>
   <!--@team.name -->
 </p>
 
@@ -14,7 +14,7 @@
 
   <tbody>
 
-  <% @player.characters.each do |character| %>
+  <% @team.characters.each do |character| %>
       <tr>
         <td><%= character.name %></td>
       </tr>
