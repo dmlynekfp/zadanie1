@@ -7,11 +7,14 @@
             <%= player.inputs do %>
                 <%=  player.input  :name, validate:true%>
                 <%=  player.input  :email_adress%>
-                <%= player.semantic_fields_for :characters do |character| %>
-                    <%= character.inputs do %>
-                        <%= character.input :name, validate:true%>
+                <div >
+                    <%= player.semantic_fields_for :characters do |character| %>
+                        <%= render 'character_fields', f:character%>
+
                     <% end %>
-                <% end %>
+                    <%=link_to_add_association 'add task', player, :characters%>
+                </div>
+
             <% end %>
         <% end %>
     <% end %>
