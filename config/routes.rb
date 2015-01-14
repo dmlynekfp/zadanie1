@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
-  get 'players/show'
 
-  get 'player/show'
+  get 'characters/index'
 
-  resources :teams
-  resources :players, only: [:show]
+#  get 'teams/:id/showplayers' =>'teams#showplayers'
 
+
+ #resources :players, only: [:show, :index]
+  resources :players, only: [:show, :index]
+  resources :teams, except:[:create] do
+    resources :players, only: [:show, :index] do
+      resources :characters, only: [:index]
+    end
+    resources :characters, only: [:index]
+  end
+
+
+
+  mount Judge::Engine => '/judge'
   root to: 'teams#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

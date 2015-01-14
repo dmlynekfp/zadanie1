@@ -14,15 +14,6 @@ logo:<%= image_tag @team.logo %>
 
 
 
-
-<%= form_for @team, :html => { :multipart => true } do |form| %>
-  <%= form.file_field :logo %>
-  <%= form.submit %>
-<% end %>
-
-
-
-
 <h2>Events</h2>
 <table>
   <thead>
@@ -34,7 +25,7 @@ logo:<%= image_tag @team.logo %>
 
   <tbody>
 
-  <% @events.each do |event| %>
+  <% @team.events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
         <td><%= link_to 'Show', event %></td>
@@ -46,57 +37,10 @@ logo:<%= image_tag @team.logo %>
 
 
 <h2>Players</h2>
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>link to</th>
-  </tr>
-  </thead>
+<p><%= @team.name %> have <%= pluralize(@number_of_players , 'player')%></p>
+<%= link_to 'show players', team_players_path(@team) %>
 
-  <tbody>
-
-  <% @players.each do |player| %>
-      <tr>
-        <td><%= player.name %></td>
-        <td><%= link_to 'Show', player%></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
 
 <h2>Characters</h2>
-<table>
-  <thead>
-  <tr>
-    <th colspan="1">Name</th>
-    <th colspan="1">Owner</th>
-  </tr>
-  </thead>
-
-  <tbody>
-
-  <% @characters.each do |character| %>
-      <tr>
-        <td><%= character.name %></td>
-        <td><%= #link_to 'Show', event
-        %></td>
-        <td><%= character.player.name %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
-
-
-<%= semantic_form_for @team do |f| %>
-    <%= f.inputs :name, :logo %>
-    <%= f.semantic_fields_for :players do |player| %>
-        <%= player.inputs :name, :email_adress %>
-        <%= player.semantic_fields_for :characters do |character| %>
-            <%= character.inputs :name%>
-        <% end %>
-    <% end %>
-    <%= f.actions %>
-<% end %>
-
+<p><%= @team.name %> have <%= pluralize(@number_of_characters , 'character')%></p>
+<%= link_to 'show characters', team_characters_path(@team) %>

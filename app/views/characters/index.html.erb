@@ -1,0 +1,26 @@
+
+
+
+<p>
+  <strong>Characters of <%= if @owner.is_a?(Player) then "player #{@name}" else "team #{@name}" end  %>:</strong>
+  <!--@team.name -->
+</p>
+
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% @characters.each do |character| %>
+      <tr>
+        <td><%= character.name %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

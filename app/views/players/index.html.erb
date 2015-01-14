@@ -1,0 +1,25 @@
+<p>
+  <strong>Player of team:</strong>
+  <%= @team.name %>
+</p>
+
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>link to</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% @team.players.each do |player| %>
+      <tr>
+        <td><%= player.name %></td>
+        <td><%= link_to 'Show', player%></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

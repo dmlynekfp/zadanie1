@@ -1,4 +1,4 @@
 class Event < ActiveRecord::Base
   has_and_belongs_to_many :teams
-  validates :name, length: {in: 6..20}
+  validates_length_of :name, in: 5..30
 end

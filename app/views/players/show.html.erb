@@ -15,18 +15,5 @@
 %>
 
 <h2>characters</h2>
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @characters.each do |character| %>
-      <tr>
-        <td><%= character.name %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= link_to 'show characters',team_player_characters_path(@player.team, @player) %>
+<p>Player2 has <%= pluralize(@player.characters.count, 'character')%></p>
