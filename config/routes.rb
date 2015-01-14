@@ -6,11 +6,17 @@ Rails.application.routes.draw do
 
 
  #resources :players, only: [:show, :index]
-  resources :players, only: [:show, :index]
-  resources :teams, except:[:create] do
+
+  concern :playersconcern do
     resources :players, only: [:show, :index] do
       resources :characters, only: [:index]
     end
+  end
+
+
+  concerns :playersconcern
+  resources :teams, except:[:create] do
+    concerns :playersconcern
     get 'characters', to:'characters#teamindex'
   end
 

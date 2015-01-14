@@ -15,5 +15,5 @@
 %>
 
 <h2>characters</h2>
-<%= link_to 'show characters',team_player_characters_path(@player.team, @player) %>
+<%= link_to 'show characters',player_characters_path( @player) %>
 <p>Player2 has <%= pluralize(@player.characters.count, 'character')%></p>
