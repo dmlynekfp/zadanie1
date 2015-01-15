@@ -1,12 +1,12 @@
 class Team < ActiveRecord::Base
   has_and_belongs_to_many :events
-  has_many :players
+  has_many :players, dependent: :destroy
   has_many :characters, through: :players
   belongs_to :country
   has_attached_file :logo, styles: { medium: '300x300>', thumb: '100x100>' }, default_url: '/images/:style/missing.png'
 
 
-  accepts_nested_attributes_for :players
+  accepts_nested_attributes_for :players, allow_destroy: true
 
 
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/

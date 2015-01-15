@@ -36,6 +36,11 @@ gem 'formtastic', '~> 3.0'
 #active judge
 gem 'judge'
 
+#active 'cocoon'
+gem "cocoon"
+
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

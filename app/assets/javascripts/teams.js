@@ -5,8 +5,7 @@ $(document).on('ready page:load',function(){
 
     function validate(element)
     {
-
-        if (element.get(0).type='email')
+        if (element.get(0).type=='email')
         {
             element=element.get(0);
             if(/^[0-9A-Za-z'\.\-_]+@[0-9A-Za-z'\.\-_]+\.[0-9A-Za-z'\.\-_]+$/.test(element.value))
@@ -17,8 +16,8 @@ $(document).on('ready page:load',function(){
             {
                 element.style.border = '1px solid red';
             }
+            return;
         }
-        console.log(element.get(0));
         judge.validate(element.get(0), {
             valid: function(element) {
                 element.style.border = '1px solid green';
@@ -33,7 +32,10 @@ $(document).on('ready page:load',function(){
 
     $(".formtastic input").keyup(  function() {  validate($(this));  }  );
 
-
+    $(document).on('cocoon:after-insert', function(e, insertedItem) {
+        $(".formtastic input").unbind("keyup");
+        $(".formtastic input").keyup( function() {  validate($(this));  });
+    });
 
 });
 

@@ -1,23 +1,23 @@
 
 
 <%= semantic_form_for @team do |f| %>
+
     <%= f.inputs do %>
         <%= f.input :name, validate:true %>
+
         <%= f.semantic_fields_for :players do |player| %>
-            <%= player.inputs do %>
-                <%=  player.input  :name, validate:true%>
-                <%=  player.input  :email_adress%>
-                <%= player.semantic_fields_for :characters do |character| %>
-                    <%= character.inputs do %>
-                        <%= character.input :name, validate:true%>
-                    <% end %>
-                <% end %>
-            <% end %>
+           <%= render 'player_fields', f:player%>
         <% end %>
+        <div>
+        <%= link_to_add_association 'add player', f, :players %>
+        </div>
     <% end %>
 
     <%= f.actions :submit  %>
 <% end %>
+
+
+
 
 
 
