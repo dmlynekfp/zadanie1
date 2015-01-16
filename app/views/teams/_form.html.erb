@@ -3,14 +3,16 @@
 <%= semantic_form_for @team do |f| %>
 
     <%= f.inputs do %>
-        <%= f.input :name, validate:true %>
+        <%=  f.input :country_id, as: :select, collection: Hash[Country.all.map{|b| [b.name,b.id]}] %>
+        <%= f.input :name,  validate:true %>
+        <%= f.input :logo%>
 
         <%= f.semantic_fields_for :players do |player| %>
            <%= render 'player_fields', f:player%>
         <% end %>
-        <div>
-        <%= link_to_add_association 'add player', f, :players %>
-        </div>
+        <%= content_tag :div  do %>
+            <%= link_to_add_association 'add player', f, :players, class: 'btn btn-link' %>
+        <% end %>
     <% end %>
 
     <%= f.actions :submit  %>

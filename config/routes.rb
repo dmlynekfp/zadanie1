@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'characters/index'
 
-#  get 'teams/:id/showplayers' =>'teams#showplayers'
-
-
- #resources :players, only: [:show, :index]
 
   concern :playersconcern do
     resources :players, only: [:show, :index] do
@@ -15,7 +10,7 @@ Rails.application.routes.draw do
 
 
   concerns :playersconcern
-  resources :teams, except:[:create] do
+  resources :teams do
     concerns :playersconcern
     get 'characters', to:'characters#teamindex'
   end

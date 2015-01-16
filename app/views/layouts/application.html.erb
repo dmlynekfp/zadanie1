@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= content_tag :div, class: 'container' do %>
+  <%= content_tag :div, class: 'row' do %>
+    <%= yield %>
 
-<%= yield %>
-
+  <% end %>
+<% end %>
 </body>
 </html>

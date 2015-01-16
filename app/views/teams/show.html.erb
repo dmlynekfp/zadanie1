@@ -5,6 +5,12 @@
   <%= @team.name %>
 </p>
 
+<% if not @team.country.nil? then %>
+    <p>
+        <strong>Country:</strong>
+        <%=@team.country.name%>
+    </p>
+<% end %>
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
 
