@@ -12,7 +12,10 @@ class TeamsController < ApplicationController
   def show
   end
 
+  def new_country
 
+    render "new_item", layout: false
+  end
 
 
 

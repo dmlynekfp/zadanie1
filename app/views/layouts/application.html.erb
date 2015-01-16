@@ -9,8 +9,9 @@
 <body>
 <%= content_tag :div, class: 'container' do %>
   <%= content_tag :div, class: 'row' do %>
-    <%= yield %>
-
+    <%=    content_tag :div, class: 'col-lg-12' do %>
+        <%= yield %>
+    <% end %>
   <% end %>
 <% end %>
 </body>
