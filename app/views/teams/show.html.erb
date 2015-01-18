@@ -40,7 +40,28 @@ logo:<%= image_tag @team.logo %>
   </tbody>
 </table>
 
+<h2>Events</h2>
+<div class="teamevents">
+<table>
+  <thead>
+  <tr>
+    <th>name</th>
+    <th>link to</th>
+  </tr>
+  </thead>
 
+  <tbody>
+
+  <% @team.events.each do |event| %>
+      <tr>
+        <%= render 'event_fields.html.erb', event:event %>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= Formtastic::Inputs::SelectInput  :country_id, collection: Hash[Country.all.map{|b| [b.name,b.id]}] %>
+<span class="btn btn-default add-event" />dodaj</span>
+</div>
 
 <h2>Players</h2>
 <p><%= @team.name %> have <%= pluralize(@team.players.count , 'player')%></p>

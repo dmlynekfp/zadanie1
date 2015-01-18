@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   concerns :playersconcern
   resources :teams do
+    get 'addtonewevent'
     concerns :playersconcern
     get 'characters', to:'characters#teamindex'
   end

@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @remaining_events=Event.where(:team_id)
   end
 
   def new_country
@@ -43,6 +44,14 @@ class TeamsController < ApplicationController
       end
     end
   end
+
+  def addtonewevent
+    @event=Event.first
+    render partial: 'event_fields', layout:false,locals:{event:@event}
+
+  end
+
+
 
   # PATCH/PUT /teams/1
   # PATCH/PUT /teams/1.json
