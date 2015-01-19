@@ -2,17 +2,17 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @event.name %>
+  <%= @country.name %>
 </p>
 
 
 
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>|
-<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_country_path(@country) %> |
+<%= link_to 'Back', countries_path %>|
+<%= link_to 'Destroy', @country, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<h2>Events</h2>
+<h2>Teams</h2>
 <table>
   <thead>
   <tr>
@@ -22,7 +22,7 @@
   </thead>
 
   <tbody>
-  <% @event.teams.each do |team| %>
+  <% @country.teams.each do |team| %>
       <tr>
         <td><%= team.name %></td>
         <td><%= link_to 'Show', team %></td>

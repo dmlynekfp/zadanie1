@@ -1,24 +1,6 @@
 $(document).on('ready page:load',function(){
 
 
-    $(".teamevents .add-event").click(function()
-    {
-
-
-
-        get_data=$.ajax({
-            url: "addtonewevent"
-            }
-        );
-
-
-
-        get_data.done(function( data ) {
-            $('.teamevents table tr:last').after('<tr>'+data+'</tr>');
-            });
-
-
-    })
 
     function validate(element)
     {

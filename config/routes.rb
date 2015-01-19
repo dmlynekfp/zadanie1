@@ -9,17 +9,24 @@ Rails.application.routes.draw do
   end
 
 
+
+
+
   concerns :playersconcern
   resources :teams do
-    get 'addtonewevent'
+    get 'addtonewevent/:id', to: 'teams#addtonewevent'
     concerns :playersconcern
-    get 'characters', to:'characters#teamindex'
+    get 'characters', to:'characters#team_index'
   end
 
-  resources :events, only: 'show'
+  resources :events
+
+  resources :countries
+
+
 
   mount Judge::Engine => '/judge'
-  root to: 'teams#index'
+  root to: 'page#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

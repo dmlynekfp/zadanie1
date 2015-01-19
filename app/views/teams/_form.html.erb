@@ -10,7 +10,7 @@
         <%= f.semantic_fields_for :players do |player| %>
            <%= render 'player_fields', f:player%>
         <% end %>
-        <%= content_tag :div  do %>
+        <%= content_tag :div do %>
             <%= link_to_add_association 'add player', f, :players, class: 'btn btn-link' %>
         <% end %>
     <% end %>

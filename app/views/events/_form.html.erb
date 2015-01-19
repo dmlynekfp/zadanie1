@@ -1,0 +1,13 @@
+<%= semantic_form_for @event do |f| %>
+
+    <%= f.inputs do %>
+        <%= f.input :name,  validate:true %>
+
+
+        <%= f.input :teams, as: :check_boxes  %>
+    <% end %>
+
+    <%= f.actions :submit  %>
+<% end %>
+
+
