@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150113073649) do
     t.datetime "updated_at"
   end
 
-  add_index "characters", ["player_id"], name: "index_characters_on_player_id"
+  add_index "characters", ["player_id"], name: "index_characters_on_player_id", using: :btree
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20150113073649) do
     t.integer "team_id"
   end
 
-  add_index "events_teams", ["event_id"], name: "index_events_teams_on_event_id"
-  add_index "events_teams", ["team_id"], name: "index_events_teams_on_team_id"
+  add_index "events_teams", ["event_id"], name: "index_events_teams_on_event_id", using: :btree
+  add_index "events_teams", ["team_id"], name: "index_events_teams_on_team_id", using: :btree
 
   create_table "players", force: true do |t|
     t.string   "name"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150113073649) do
     t.datetime "updated_at"
   end
 
-  add_index "players", ["team_id"], name: "index_players_on_team_id"
+  add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
 
   create_table "teams", force: true do |t|
     t.string   "name"
