@@ -34,8 +34,12 @@
             <li <% if params[:controller]=='teams' then %>class="active"<% end %>><a href="<%= teams_path %>">show teams
               <% if params[:controller]=='teams' then %><span class="sr-only">(current)</span> <% end %></a></li>
 
-            <li><a href="<%= events_path %>">show events</a></li>
-            <li><a href="<%= countries_path %>">show countries</a></li>
+            <li <% if params[:controller]=='events' then %>class="active"<% end %>><a href="<%= events_path %>">show events
+              <% if params[:controller]=='events' then %><span class="sr-only">(current)</span> <% end %></a></li>
+
+            <li <% if params[:controller]=='countries' then %>class="active"<% end %>><a href="<%= countries_path %>">show countries
+              <% if params[:controller]=='countries' then %><span class="sr-only">(current)</span> <% end %></a></li>
+
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

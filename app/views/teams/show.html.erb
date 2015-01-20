@@ -11,9 +11,9 @@
         <%=@team.country.name%>
     </p>
 <% end %>
-<%= link_to 'Delete', team_path(@team), method: :delete, data: { confirm: 'Are you sure?' }  %> |
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<%= link_to 'Delete', team_path(@team), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-link', style:'color:#ff0000' %> |
+<%= link_to 'Edit', edit_team_path(@team), class:'btn btn-link'  %> |
+<%= link_to 'Back', teams_path,  class:'btn btn-link'  %>
 
 
 
@@ -22,7 +22,7 @@ logo:<%= image_tag @team.logo %>
 
 
 <h2>Events</h2>
-<table>
+<table class="table">
   <thead>
   <tr>
     <th>name</th>
@@ -31,33 +31,27 @@ logo:<%= image_tag @team.logo %>
   </thead>
 
   <tbody>
-
-  <% @team.events.each do |event| %>
+    <% if @team.events.count==0 %>
+      <td colspan="2">
+        nothing to show
+      </td>
+    <% end %>
+    <% @team.events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
         <td><%= link_to 'Show', event %></td>
       </tr>
-  <% end %>
+    <% end %>
   </tbody>
+
 </table>
-
-<h2>Events</h2>
-<div class="teamevents">
-<table>
-  <thead>
-  <tr>
-    <th>name</th>
-    <th>link to</th>
-  </tr>
-  </thead>
-
 
 
 <h2>Players</h2>
 <p><%= @team.name %> have <%= pluralize(@team.players.count , 'player')%></p>
-<%= link_to 'show players', team_players_path(@team) %>
+<%= link_to 'show players', team_players_path(@team), class:'btn btn-link' %>
 
 
 <h2>Characters</h2>
 <p><%= @team.name %> have <%= pluralize(@team.characters.count , 'character')%></p>
-<%= link_to 'show characters', team_characters_path(@team) %>
+<%= link_to 'show characters', team_characters_path(@team), class:'btn btn-link' %>

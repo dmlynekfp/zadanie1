@@ -6,7 +6,7 @@
 </p>
 <p>
   <strong>Team:</strong>
-  <%= link_to @player.team.name , @player.team %>
+  <%= link_to @player.team.name , @player.team, class: 'btn btn-link'  %>
 </p>
 
 <%= #link_to 'Edit', edit_team_path(@team)
@@ -15,5 +15,5 @@
 %>
 
 <h2>characters</h2>
-<%= link_to 'show characters',player_characters_path( @player) %>
+<%= link_to 'show characters',player_characters_path( @player), class: 'btn btn-link' %>
 <p>Player2 has <%= pluralize(@player.characters.count, 'character')%></p>

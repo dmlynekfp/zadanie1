@@ -8,8 +8,8 @@
                 <%= render 'character_fields', f:character %>
             <% end%>
         <%= content_tag :div do %>
-            <%= link_to_add_association 'add character', f, :characters %>
-            <%= link_to_remove_association "remove player", f%>
+            <%= link_to_add_association 'add character', f, :characters, class:'btn btn-link' %>
+            <%= link_to_remove_association "remove player", f, class:'btn btn-link'%>
         <% end %>
     <% end %>
 <% end %>

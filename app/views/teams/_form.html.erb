@@ -1,9 +1,8 @@
 
 
 <%= semantic_form_for @team do |f| %>
-
     <%= f.inputs do %>
-        <%=  f.input :country_id, as: :select, collection: Hash[Country.all.map{|b| [b.name,b.id]}] %>
+        <%=  f.input :country_id, as: :select, :input_html => { :class => "selectpicker" }, collection: Hash[Country.all.map{|b| [b.name,b.id]}] %>
         <%= f.input :name,  validate:true %>
         <%= f.input :logo%>
 
@@ -22,12 +21,3 @@
 
 
 
-
-
-
-<!--f.inputs do-->
-    <!--f.input :cos-->
-    <!--f.semantic_blabla do |g|-->
-        <!--g.costam-->
-    <!--end-->
-<!--end-->
